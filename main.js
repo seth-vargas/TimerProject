@@ -18,6 +18,7 @@ let timerInterval
 
 startStopBtn.addEventListener("click", () => {
   startStopBtn.classList.toggle("isClicked")
+  startStopBtn.textContent = "Stop"
   if (startStopBtn.className === "isClicked") {
     timerInterval = setInterval(() => {
       currentMiliseconds++
@@ -32,9 +33,18 @@ startStopBtn.addEventListener("click", () => {
       if (currentMinutes === 60) {
         currentHours++
         currentMinutes = 0
-      }      
+      }
+      if(currentMiliseconds < 10) {milisecondsSpan.textContent = `0${currentMiliseconds}`}
+      else {milisecondsSpan.textContent = currentMiliseconds}
+      if(currentSeconds < 10) {secondsSpan.textContent = `0${currentSeconds}`}
+      else {secondsSpan.textContent = currentSeconds}
+      if(currentMinutes < 10) {minutesSpan.textContent = `0${currentMinutes}`}
+      else {minutesSpan.textContent = currentMinutes}
+      if(currentHours < 10) {hoursSpan.textContent = `0${currentHours}`}
+      else {hoursSpan.textContent = currentHours}
     }, 10)
   } else {
+    startStopBtn.textContent = "Start"
     clearInterval(timerInterval)
   }
 })
