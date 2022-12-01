@@ -47,3 +47,7 @@ button {
 .miliseconds-span {
   display: none;
 }
+
+.buttons {
+  text-align: center;
+}
