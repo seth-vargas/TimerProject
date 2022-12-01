@@ -48,3 +48,23 @@ startStopBtn.addEventListener("click", () => {
     clearInterval(timerInterval)
   }
 })
+
+resetBtn.addEventListener("click", () =>{
+  reset()
+})
+
+function reset() {
+  clearInterval(timerInterval)
+  startStopBtn.classList.remove("isClicked")
+  startStopBtn.textContent = "Start"
+
+  currentHours = 0
+  currentMinutes = 0
+  currentSeconds = 0
+  currentMiliseconds = 0
+
+
+  hoursSpan.textContent = `00`
+  secondsSpan.textContent = `00`
+  minutesSpan.textContent = `00`
+}
